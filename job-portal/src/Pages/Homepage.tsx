@@ -1,7 +1,7 @@
 import Header from "../Header/Header";
 import Companies from "../Landingpage/Companies";
 import DreamJobs from "../Landingpage/Dreamjob";
-import Jobcategory from "../Landingpage/JobCategory1";
+import Jobcategory from "../Landingpage/JobCategory";
 
 const Homepage = () => {
   return (
