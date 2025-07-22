@@ -1,6 +1,5 @@
 import { Avatar } from "@mantine/core";
-import { work } from "../Data/Data"; // ✅ Import your data
-
+import { work } from "../Data/Data";
 const Working = () => {
   return (
     <div className="mt-20 pb-5 overflow-visible">

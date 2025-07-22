@@ -2,6 +2,7 @@ import Header from "../Header/Header";
 import Companies from "../Landingpage/Companies";
 import DreamJobs from "../Landingpage/Dreamjob";
 import Jobcategory from "../Landingpage/JobCategory";
+import Testimonials from "../Landingpage/Testimonials";
 import Working from "../Landingpage/Working";
 
 const Homepage = () => {
@@ -12,6 +13,7 @@ const Homepage = () => {
       <Companies />
       <Jobcategory />
       <Working/>
+      <Testimonials/>
     </div>
   );
 };
