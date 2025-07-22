@@ -16,17 +16,24 @@ const Working = () => {
 
       {/* Main Content Layout */}
       <div className="flex gap-12 px-16 items-center justify-between flex-wrap md:flex-nowrap">
-        {/* Left - Girl Image + Optional Avatar */}
-        <div className="w-full md:w-1/2 flex flex-col items-center gap-4">
+        {/* Left - Girl Image + Avatar Inside */}
+        <div className="w-full md:w-1/2 flex flex-col items-center gap-4 relative">
           <img
             className="w-[30rem] max-w-full"
             src="/Working/Girl.png"
             alt="Working girl illustration"
           />
-          {/* Optional Avatar below image */}
-          <Avatar className="!h-16 !w-16" src="/avatar1.png" alt="It's me" size="lg" />
-          <div className="text-sm font-semibold text-mine-shaft-300 text-center">Complete your profile</div>
-          <div className="text-sm font-semibold text-mine-shaft-300 text-center">75% completed</div>
+
+          {/* Avatar card inside the image with hover animation */}
+          <div className="absolute top-[15%] right-12 w-40 flex flex-col items-center gap-1 border border-bright-sun-300 rounded-xl py-3 px-2 backdrop-blur-md shadow-lg transition-transform duration-300 hover:scale-105">
+            <Avatar className="!h-16 !w-16" src="/avatar1.png" alt="It's me" size="lg" />
+            <div className="text-sm font-semibold text-mine-shaft-300 text-center">
+              Complete your profile
+            </div>
+            <div className="text-sm font-semibold text-mine-shaft-300 text-center">
+              75% completed
+            </div>
+          </div>
         </div>
 
         {/* Right - Work Steps */}

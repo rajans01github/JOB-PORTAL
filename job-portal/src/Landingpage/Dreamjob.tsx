@@ -47,7 +47,7 @@ const DreamJob = () => {
           <img src="/Boy.png" alt="boy" />
 
           {/* Avatars Floating Box */}
-          <div className="absolute top-[50%] -right-10 w-fit border-bright-sun-400 border rounded-lg p-2 backdrop-blur-md shadow-lg ">
+          <div className="absolute top-[50%] -right-10 w-fit border-bright-sun-400 border rounded-lg p-2  backdrop-blur-md  shadow-lg transition-transform duration-300 hover:scale-105">
             <div className="text-center mb-1 text-sm text-mine-shaft-100">
               20K+ Got Job
             </div>
@@ -58,7 +58,7 @@ const DreamJob = () => {
               <Avatar>+19K</Avatar>
             </Avatar.Group>
           </div>
-          <div className="absolute top-[25%] -left-5 w-fit border-bright-sun-400 border rounded-lg p-2 backdrop-blur-md shadow-lg gap-3 flex flex-col">
+          <div className="absolute top-[25%] -left-5 w-fit border-bright-sun-400 border rounded-lg p-2 backdrop-blur-md  transition-transform duration-300 hover:scale-105 shadow-lg gap-3 flex flex-col">
             <div className="flex gap-2 items-center">
              <div className="h-10 w-10 p-1 bg-mine-shaft-900 rounded-lg"> <img src="/Icons/Google.png" alt="" className="src" /></div>
              <div>
