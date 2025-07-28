@@ -1,6 +1,6 @@
 const Subscribe = () => {
   return (
-    <div className="mt-20 mb-20 mx-4 md:mx-20 py-10 px-6 bg-mine-shaft-900 rounded-2xl shadow-xl text-center flex flex-col items-center">
+    <div className="mt-20 mb-5 mx-4 md:mx-20 py-10 px-6 bg-mine-shaft-900 rounded-2xl shadow-xl text-center flex flex-col items-center">
       
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-bold text-mine-shaft-100 mb-4">

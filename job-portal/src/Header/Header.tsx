@@ -7,10 +7,11 @@ const Header = () => {
   return (
     <div className="w-full bg-mine-shaft-950 px-6 text-white h-20 flex justify-between items-center">
       {/* Logo Section */}
-      <div className="flex gap-3 text-center text-bright-sun-400">
-        <IconDeviceTabletSearch className="h-10 w-9" stroke={2} />
-        <div className="text-3xl font-semibold">HireNest</div>
+      <div className="flex gap-3 text-center text-bright-sun-400 animate-pulse">
+      <IconDeviceTabletSearch className="h-10 w-9" stroke={2} />
+      <div className="text-3xl font-semibold">HireNest</div>
       </div>
+
 
       {NavLinks()}
 
