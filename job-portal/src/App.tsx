@@ -1,11 +1,14 @@
 import { createTheme, MantineProvider } from '@mantine/core';
 import Homepage from './Pages/Homepage';
-import Footer from './Footer.tsx/Footer'; // ✅ Make sure this path is correct
+import Footer from './Footer.tsx/Footer';
 import './index.css';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './Header/Header';
+import FindJobs from './Pages/FindJobs';
 
+// ✅ Custom theme config (no colorScheme inside theme)
 const theme = createTheme({
   colors: {
     brightSun: [
@@ -21,17 +24,17 @@ const theme = createTheme({
 
 function App() {
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} defaultColorScheme="dark">
       <BrowserRouter>
         <div className="min-h-screen flex flex-col">
           {/* Page Content */}
           <main className="flex-grow">
+            <Header />
             <Routes>
+              <Route path="/find-jobs" element={<FindJobs />} />
               <Route path="*" element={<Homepage />} />
             </Routes>
           </main>
-
-          {/* Footer */}
           <Footer />
         </div>
       </BrowserRouter>
