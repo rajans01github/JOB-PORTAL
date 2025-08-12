@@ -20,6 +20,7 @@ const theme = createTheme({
       '#6d6d6d', '#5d5d5d', '#4f4f4f', '#454545', '#3d3d3d',
     ],
   },
+  fontFamily:"poppins , sans-serif"
 });
 
 function App() {

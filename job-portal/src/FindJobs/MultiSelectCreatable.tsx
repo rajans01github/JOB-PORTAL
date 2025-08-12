@@ -1,4 +1,13 @@
-import { CheckIcon, Combobox, Group, Pill, PillsInput, useCombobox } from '@mantine/core';
+import {
+  Checkbox,
+  Combobox,
+  Group,
+  Input,
+  Pill,
+  PillsInput,
+  useCombobox,
+} from '@mantine/core';
+import { IconSearch } from '@tabler/icons-react';
 import { useState } from 'react';
 
 const groceries = ['🍎 Apples', '🍌 Bananas', '🥦 Broccoli', '🥕 Carrots', '🍫 Chocolate'];
@@ -13,7 +22,7 @@ export function MaxInput() {
   const [data, setData] = useState(groceries);
   const [value, setValue] = useState<string[]>([]);
 
-  const exactOptionMatch = data.some((item) => item === search);
+  const exactOptionMatch = data.some((item) => item.toLowerCase() === search.toLowerCase());
 
   const handleValueSelect = (val: string) => {
     setSearch('');
@@ -31,53 +40,70 @@ export function MaxInput() {
   const handleValueRemove = (val: string) =>
     setValue((current) => current.filter((v) => v !== val));
 
-  const values = value.map((item) => (
-    <Pill key={item} withRemoveButton onRemove={() => handleValueRemove(item)}>
-      {item}
-    </Pill>
-  ));
-
-  const options = data
-    .filter((item) => item.toLowerCase().includes(search.trim().toLowerCase()))
+  const values = value
+    .slice(0, 1)
     .map((item) => (
-      <Combobox.Option value={item} key={item} active={value.includes(item)}>
-        <Group gap="sm">
-          {value.includes(item) ? <CheckIcon size={12} /> : null}
-          <span>{item}</span>
-        </Group>
-      </Combobox.Option>
+      <Pill key={item} withRemoveButton onRemove={() => handleValueRemove(item)}>
+        {item}
+      </Pill>
     ));
+
+  // Filter options based on search text
+  const filteredData = data.filter((item) =>
+    item.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const options = filteredData.map((item) => (
+    <Combobox.Option value={item} key={item}>
+      <Group gap="sm">
+        <Checkbox
+          size="sm"
+          color="brightSun.4"
+          checked={value.includes(item)}
+          onChange={() => {}}
+          aria-hidden
+          tabIndex={-1}
+          style={{ pointerEvents: 'none' }}
+        />
+        <span>{item}</span>
+      </Group>
+    </Combobox.Option>
+  ));
 
   return (
     <Combobox store={combobox} onOptionSubmit={handleValueSelect} withinPortal={false}>
       <Combobox.DropdownTarget>
-        <PillsInput onClick={() => combobox.openDropdown()}>
+        <PillsInput
+          rightSection={<Combobox.Chevron />}
+          leftSection={
+            <div className="text-bright-sun-400 p-1 bg-mine-shaft-950 rounded-full mr-1">
+              <IconSearch />
+            </div>
+          }
+          onClick={() => combobox.toggleDropdown()}
+        >
           <Pill.Group>
-            {values}
-
-            <Combobox.EventsTarget>
-              <PillsInput.Field
-                onFocus={() => combobox.openDropdown()}
-                onBlur={() => combobox.closeDropdown()}
-                value={search}
-                placeholder="Search values"
-                onChange={(event) => {
-                  combobox.updateSelectedOptionIndex();
-                  setSearch(event.currentTarget.value);
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === 'Backspace' && search.length === 0 && value.length > 0) {
-                    event.preventDefault();
-                    handleValueRemove(value[value.length - 1]);
-                  }
-                }}
-              />
-            </Combobox.EventsTarget>
+            {value.length > 0 ? (
+              <>
+                {values}
+                {value.length > 1 && <Pill>+{value.length - 1} more</Pill>}
+              </>
+            ) : (
+              <Input.Placeholder className='!text-mine-shaft-200'>Job Tittle</Input.Placeholder>
+            )}
           </Pill.Group>
         </PillsInput>
       </Combobox.DropdownTarget>
 
       <Combobox.Dropdown>
+        {/* Search box inside dropdown */}
+        <Combobox.Search
+  value={search}
+  onChange={(event) => setSearch(event.currentTarget.value)}
+  placeholder="Search groceries"
+  className="text-mine-shaft-300"
+/>
+
         <Combobox.Options>
           {options}
 
@@ -85,7 +111,7 @@ export function MaxInput() {
             <Combobox.Option value="$create">+ Create {search}</Combobox.Option>
           )}
 
-          {exactOptionMatch && search.trim().length > 0 && options.length === 0 && (
+          {filteredData.length === 0 && (
             <Combobox.Empty>Nothing found</Combobox.Empty>
           )}
         </Combobox.Options>
@@ -93,4 +119,5 @@ export function MaxInput() {
     </Combobox>
   );
 }
+
 export default MaxInput;
