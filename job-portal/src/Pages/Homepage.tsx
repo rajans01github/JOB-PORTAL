@@ -7,7 +7,7 @@ import Working from "../Landingpage/Working";
 
 const Homepage = () => {
   return (
-    <div className="min-h-screen bg-[#1a1a1a] font-['Poppins']">
+    <div className="min-h-screen bg-mine-shaft-950 font-['Poppins']">
       <DreamJobs />
       <Companies />
       <Jobcategory />

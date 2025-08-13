@@ -9,7 +9,12 @@ const Header = () => {
       {/* Logo Section */}
       <div className="flex gap-3 text-center text-bright-sun-400 animate-pulse">
       <IconDeviceTabletSearch className="h-10 w-9" stroke={2} />
-      <div className="text-3xl font-semibold">HireNest</div>
+     <a
+       href="http://localhost:3000/"
+       className="text-3xl font-semibold"
+        >
+         HireNest
+      </a>
       </div>
 
 
