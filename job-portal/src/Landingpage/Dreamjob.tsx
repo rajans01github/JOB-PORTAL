@@ -18,7 +18,7 @@ const DreamJob = () => {
         </motion.div>
 
         <div className="text-mine-shaft-200 text-lg">
-          Good life begins with a good company. Start exploring thousands of jobs in one place.
+         
         </div>
 
         {/* Search Bar */}
